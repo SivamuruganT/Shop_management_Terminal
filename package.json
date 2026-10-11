@@ -1,0 +1,45 @@
+{
+  "name": "ecbill-terminal",
+  "version": "0.1.0",
+  "private": true,
+  "description": "ECBill Shop Terminal - offline-first billing, inventory & reporting (Windows native, Electron)",
+  "main": "electron/main.js",
+  "author": "Sivamurugan T.",
+  "scripts": {
+    "dev:renderer": "vite",
+    "dev:electron": "wait-on tcp:5173 && electron .",
+    "dev": "concurrently -k \"npm:dev:renderer\" \"npm:dev:electron\"",
+    "build:renderer": "vite build",
+    "build": "npm run build:renderer && electron-builder",
+    "postinstall": "electron-builder install-app-deps"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "better-sqlite3": "^11.3.0",
+    "exceljs": "^4.4.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.1",
+    "concurrently": "^8.2.2",
+    "electron": "^31.3.1",
+    "electron-builder": "^24.13.3",
+    "vite": "^5.4.2",
+    "wait-on": "^7.2.0"
+  },
+  "build": {
+    "appId": "com.ecbill.terminal",
+    "productName": "ECBill",
+    "directories": {
+      "output": "release"
+    },
+    "win": {
+      "target": "nsis"
+    },
+    "files": [
+      "dist/**/*",
+      "electron/**/*"
+    ]
+  }
+}

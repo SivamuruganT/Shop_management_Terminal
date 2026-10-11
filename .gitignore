@@ -1,0 +1,25 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+release/
+
+# Local SQLite database (per-machine test/runtime data - never commit this)
+*.db
+*.db-wal
+*.db-shm
+
+# Logs
+npm-debug.log*
+*.log
+
+# OS / editor junk
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Env files (if you add cloud/API credentials later)
+.env
+.env.local
